@@ -24,6 +24,7 @@ class DioNetworkService extends NetworkService with ExceptionHandler {
   //TODO add api key to ENV
   @override
   Map<String, Object> get headers => {
+        'content-type': 'application/json',
         'x-api-key':
             'live_5fBC4DuBSUuqOqxICkSZ6aYOuz0aQsKz0gRnE7IeVblxCK0i9WHKSAGFP8PokwoS',
       };
