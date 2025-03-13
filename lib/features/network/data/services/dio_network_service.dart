@@ -9,7 +9,9 @@ import 'package:dio/dio.dart';
 class DioNetworkService extends NetworkService with ExceptionHandler {
   final Dio dio;
 
-  DioNetworkService(this.dio);
+  DioNetworkService(this.dio) {
+    dio.options = dioBaseOptions;
+  }
 
   BaseOptions get dioBaseOptions => BaseOptions(
         baseUrl: baseUrl,
@@ -19,10 +21,11 @@ class DioNetworkService extends NetworkService with ExceptionHandler {
   @override
   String get baseUrl => AppConfig.baseUrl;
 
+  //TODO add api key to ENV
   @override
   Map<String, Object> get headers => {
-        'accept': 'application/json',
-        'content-type': 'application/json',
+        'x-api-key':
+            'live_5fBC4DuBSUuqOqxICkSZ6aYOuz0aQsKz0gRnE7IeVblxCK0i9WHKSAGFP8PokwoS',
       };
 
   @override

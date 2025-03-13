@@ -8,7 +8,7 @@ import 'package:cat_catcher_app/features/network/domain/entities/custom_response
 import 'package:cat_catcher_app/features/network/domain/services/network_service.dart';
 import 'package:dartz/dartz.dart';
 
-class CatRemoteDatasourceImpl extends CatRemoteDatasource {
+class CatRemoteDatasourceImpl extends CatDatasource {
   final NetworkService networkService;
 
   CatRemoteDatasourceImpl(this.networkService);
@@ -19,9 +19,12 @@ class CatRemoteDatasourceImpl extends CatRemoteDatasource {
         await networkService.get(ApiEndpoint.breeds());
 
     return response.fold((l) => Left(l), (r) {
-      final jsonData = r.data;
-      final catModelData = CatModel.fromJson(jsonData);
-      return CatMapper.fromCatModelToCat(catModelData);
+      final List<dynamic> jsonData = r.data;
+      final List<CatModel> catModelData =
+          jsonData.map((value) => CatModel.fromJson(value)).toList();
+      final cats =
+          catModelData.map((e) => CatMapper.fromCatModelToCat(e)).toList();
+      return Right(cats);
     });
   }
 }

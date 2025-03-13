@@ -12,9 +12,9 @@ class ApiEndpoint {
   static String breeds({
     VersionApi versionApi = VersionApi.v1,
   }) {
-    const path = '/breeds';
+    const path = 'breeds';
     String version = versionApi.name;
-    return '$path/$version';
+    return '/$version/$path';
   }
 }
 

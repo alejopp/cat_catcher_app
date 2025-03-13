@@ -3,7 +3,7 @@ import 'package:cat_catcher_app/features/cat/domain/entities/cat.dart';
 import 'package:cat_catcher_app/features/cat/domain/entities/cat_image.dart';
 
 class CatMapper {
-  static fromCatModelToCat(CatModel catModel) => Cat(
+  static Cat fromCatModelToCat(CatModel catModel) => Cat(
         id: catModel.id ?? '',
         name: catModel.name ?? '',
         origin: catModel.origin ?? '',
