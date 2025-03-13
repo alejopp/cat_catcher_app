@@ -21,10 +21,9 @@ mixin _$Cat {
   String get origin => throw _privateConstructorUsedError;
   int get intelligence => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String get temperament => throw _privateConstructorUsedError;
   String get lifeSpan => throw _privateConstructorUsedError;
   String get wikipediaUrl => throw _privateConstructorUsedError;
-  CatImage get image => throw _privateConstructorUsedError;
+  CatImage? get image => throw _privateConstructorUsedError;
 
   /// Create a copy of Cat
   /// with the given fields replaced by the non-null parameter values.
@@ -43,12 +42,11 @@ abstract class $CatCopyWith<$Res> {
       String origin,
       int intelligence,
       String description,
-      String temperament,
       String lifeSpan,
       String wikipediaUrl,
-      CatImage image});
+      CatImage? image});
 
-  $CatImageCopyWith<$Res> get image;
+  $CatImageCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -70,10 +68,9 @@ class _$CatCopyWithImpl<$Res, $Val extends Cat> implements $CatCopyWith<$Res> {
     Object? origin = null,
     Object? intelligence = null,
     Object? description = null,
-    Object? temperament = null,
     Object? lifeSpan = null,
     Object? wikipediaUrl = null,
-    Object? image = null,
+    Object? image = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -96,10 +93,6 @@ class _$CatCopyWithImpl<$Res, $Val extends Cat> implements $CatCopyWith<$Res> {
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      temperament: null == temperament
-          ? _value.temperament
-          : temperament // ignore: cast_nullable_to_non_nullable
-              as String,
       lifeSpan: null == lifeSpan
           ? _value.lifeSpan
           : lifeSpan // ignore: cast_nullable_to_non_nullable
@@ -108,10 +101,10 @@ class _$CatCopyWithImpl<$Res, $Val extends Cat> implements $CatCopyWith<$Res> {
           ? _value.wikipediaUrl
           : wikipediaUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as CatImage,
+              as CatImage?,
     ) as $Val);
   }
 
@@ -119,8 +112,12 @@ class _$CatCopyWithImpl<$Res, $Val extends Cat> implements $CatCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CatImageCopyWith<$Res> get image {
-    return $CatImageCopyWith<$Res>(_value.image, (value) {
+  $CatImageCopyWith<$Res>? get image {
+    if (_value.image == null) {
+      return null;
+    }
+
+    return $CatImageCopyWith<$Res>(_value.image!, (value) {
       return _then(_value.copyWith(image: value) as $Val);
     });
   }
@@ -138,13 +135,12 @@ abstract class _$$CatImplCopyWith<$Res> implements $CatCopyWith<$Res> {
       String origin,
       int intelligence,
       String description,
-      String temperament,
       String lifeSpan,
       String wikipediaUrl,
-      CatImage image});
+      CatImage? image});
 
   @override
-  $CatImageCopyWith<$Res> get image;
+  $CatImageCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -163,10 +159,9 @@ class __$$CatImplCopyWithImpl<$Res> extends _$CatCopyWithImpl<$Res, _$CatImpl>
     Object? origin = null,
     Object? intelligence = null,
     Object? description = null,
-    Object? temperament = null,
     Object? lifeSpan = null,
     Object? wikipediaUrl = null,
-    Object? image = null,
+    Object? image = freezed,
   }) {
     return _then(_$CatImpl(
       id: null == id
@@ -189,10 +184,6 @@ class __$$CatImplCopyWithImpl<$Res> extends _$CatCopyWithImpl<$Res, _$CatImpl>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      temperament: null == temperament
-          ? _value.temperament
-          : temperament // ignore: cast_nullable_to_non_nullable
-              as String,
       lifeSpan: null == lifeSpan
           ? _value.lifeSpan
           : lifeSpan // ignore: cast_nullable_to_non_nullable
@@ -201,10 +192,10 @@ class __$$CatImplCopyWithImpl<$Res> extends _$CatCopyWithImpl<$Res, _$CatImpl>
           ? _value.wikipediaUrl
           : wikipediaUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as CatImage,
+              as CatImage?,
     ));
   }
 }
@@ -218,10 +209,9 @@ class _$CatImpl implements _Cat {
       required this.origin,
       required this.intelligence,
       required this.description,
-      required this.temperament,
       required this.lifeSpan,
       required this.wikipediaUrl,
-      required this.image});
+      this.image});
 
   @override
   final String id;
@@ -234,17 +224,15 @@ class _$CatImpl implements _Cat {
   @override
   final String description;
   @override
-  final String temperament;
-  @override
   final String lifeSpan;
   @override
   final String wikipediaUrl;
   @override
-  final CatImage image;
+  final CatImage? image;
 
   @override
   String toString() {
-    return 'Cat(id: $id, name: $name, origin: $origin, intelligence: $intelligence, description: $description, temperament: $temperament, lifeSpan: $lifeSpan, wikipediaUrl: $wikipediaUrl, image: $image)';
+    return 'Cat(id: $id, name: $name, origin: $origin, intelligence: $intelligence, description: $description, lifeSpan: $lifeSpan, wikipediaUrl: $wikipediaUrl, image: $image)';
   }
 
   @override
@@ -259,8 +247,6 @@ class _$CatImpl implements _Cat {
                 other.intelligence == intelligence) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.temperament, temperament) ||
-                other.temperament == temperament) &&
             (identical(other.lifeSpan, lifeSpan) ||
                 other.lifeSpan == lifeSpan) &&
             (identical(other.wikipediaUrl, wikipediaUrl) ||
@@ -270,7 +256,7 @@ class _$CatImpl implements _Cat {
 
   @override
   int get hashCode => Object.hash(runtimeType, id, name, origin, intelligence,
-      description, temperament, lifeSpan, wikipediaUrl, image);
+      description, lifeSpan, wikipediaUrl, image);
 
   /// Create a copy of Cat
   /// with the given fields replaced by the non-null parameter values.
@@ -288,10 +274,9 @@ abstract class _Cat implements Cat {
       required final String origin,
       required final int intelligence,
       required final String description,
-      required final String temperament,
       required final String lifeSpan,
       required final String wikipediaUrl,
-      required final CatImage image}) = _$CatImpl;
+      final CatImage? image}) = _$CatImpl;
 
   @override
   String get id;
@@ -304,13 +289,11 @@ abstract class _Cat implements Cat {
   @override
   String get description;
   @override
-  String get temperament;
-  @override
   String get lifeSpan;
   @override
   String get wikipediaUrl;
   @override
-  CatImage get image;
+  CatImage? get image;
 
   /// Create a copy of Cat
   /// with the given fields replaced by the non-null parameter values.

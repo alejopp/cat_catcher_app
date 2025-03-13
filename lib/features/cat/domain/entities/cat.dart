@@ -12,9 +12,8 @@ class Cat with _$Cat {
     required String origin,
     required int intelligence,
     required String description,
-    required String temperament,
     required String lifeSpan,
     required String wikipediaUrl,
-    required CatImage image,
+    CatImage? image,
   }) = _Cat;
 }
