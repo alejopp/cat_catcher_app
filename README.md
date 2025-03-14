@@ -74,16 +74,16 @@ flutter test
 ## 📸 Capturas de Pantalla
 
 ### 🏠 Splash
-![Pantalla Principal](assets/screenshots/android/splash_screen.png)
+<img assets/screenshots/android/splash_screen.png" alt="Splash" width="300" height="500"/>
 
 ### 🏠 Pantalla Principal
-![Pantalla Principal](assets/screenshots/android/landing_screen1.png)
+<img assets/screenshots/android//landing_screen1.png" alt="Pantalla Principal 1" width="300" height="500"/>
 
 ### 🔍 Pantalla de Principal 2
-![Pantalla Principal](assets/screenshots/android/landing_screen2.png)
+<img assets/screenshots/android//landing_screen2.png" alt="Pantalla Principal 2" width="300" height="500"/>
 
 ### 📄 Detalle de una Raza
-![Detalle de Raza](assets/screenshots/android/cat_detail_screen.png)
+<img assets/screenshots/android/cat_detail_screen.png" alt="Cat Detail screen" width="300" height="500"/>
 
 ## 📄 Licencia
 
