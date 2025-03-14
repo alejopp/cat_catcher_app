@@ -18,7 +18,7 @@ class CatDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFF330072), //TODO Color//Color(0xFF1E1E1E),
+        backgroundColor: Color(0xFF330072),
         appBar: _buildAppBar(),
         body: _buildBody(context),
       ),
@@ -63,66 +63,69 @@ class CatDetailScreen extends StatelessWidget {
 
   Expanded _buildDetailsSection() {
     return Expanded(
-      child: SingleChildScrollView(
-        padding: EdgeInsets.all(16.r),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Text(
-                  catData.origin,
-                  style: AppStyles.bodyNormalBoldStyle,
-                ),
-                SizedBox(width: 10.w),
-                SvgPicture.network(
-                  'https://flagcdn.com/${catData.countryCode.toLowerCase()}.svg',
-                  width: 24,
-                  height: 24,
-                )
-              ],
-            ),
-            SizedBox(height: 10.h),
-            Text(
-              catData.description,
-              style: AppStyles.bodyNormalStyle,
-            ),
-            SizedBox(height: 20.h),
-            _buildInfoRow(
-                AppStrings.intelligence, catData.intelligence, Icons.lightbulb),
-            _buildInfoRow(
-                AppStrings.adaptability, catData.intelligence, Icons.star),
-            _buildInfoRow(AppStrings.childFriendly, catData.childFriendly,
-                Icons.child_care),
-            _buildInfoRow(
-                AppStrings.socialNeeds, catData.socialNeeds, Icons.people),
-            _buildInfoRow(
-                AppStrings.dogFriendly, catData.dogFriendly, Icons.pets),
-            SizedBox(height: 10.h),
-            Row(
-              children: [
-                Icon(Icons.favorite, color: Colors.redAccent),
-                SizedBox(width: 10.w),
-                Text(
-                  AppStrings.lifeSpan(catData.lifeSpan),
-                  style: AppStyles.bodyNormalStyle,
-                ),
-              ],
-            ),
-            SizedBox(height: 10.h),
-            Row(
-              children: [
-                Icon(Icons.person, color: Colors.blueAccent),
-                SizedBox(width: 10.h),
-                Expanded(
-                  child: Text(
-                    catData.temperament,
+      child: Scrollbar(
+        thumbVisibility: true,
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(16.r),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    catData.origin,
+                    style: AppStyles.bodyNormalBoldStyle,
+                  ),
+                  SizedBox(width: 10.w),
+                  SvgPicture.network(
+                    'https://flagcdn.com/${catData.countryCode.toLowerCase()}.svg',
+                    width: 24,
+                    height: 24,
+                  )
+                ],
+              ),
+              SizedBox(height: 10.h),
+              Text(
+                catData.description,
+                style: AppStyles.bodyNormalStyle,
+              ),
+              SizedBox(height: 20.h),
+              _buildInfoRow(AppStrings.intelligence, catData.intelligence,
+                  Icons.lightbulb),
+              _buildInfoRow(
+                  AppStrings.adaptability, catData.intelligence, Icons.star),
+              _buildInfoRow(AppStrings.childFriendly, catData.childFriendly,
+                  Icons.child_care),
+              _buildInfoRow(
+                  AppStrings.socialNeeds, catData.socialNeeds, Icons.people),
+              _buildInfoRow(
+                  AppStrings.dogFriendly, catData.dogFriendly, Icons.pets),
+              SizedBox(height: 10.h),
+              Row(
+                children: [
+                  Icon(Icons.favorite, color: Colors.redAccent),
+                  SizedBox(width: 10.w),
+                  Text(
+                    AppStrings.lifeSpan(catData.lifeSpan),
                     style: AppStyles.bodyNormalStyle,
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+              SizedBox(height: 10.h),
+              Row(
+                children: [
+                  Icon(Icons.person, color: Colors.blueAccent),
+                  SizedBox(width: 10.h),
+                  Expanded(
+                    child: Text(
+                      catData.temperament,
+                      style: AppStyles.bodyNormalStyle,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
