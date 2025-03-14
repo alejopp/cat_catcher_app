@@ -34,7 +34,7 @@ class CatNotifier extends StateNotifier<CatState> {
     );
   }
 
-  void filter(String query) {
+  void filterCat(String query) {
     if (query.isEmpty) {
       state = state.copyWith(filteredCats: state.cats, searching: false);
     } else {
