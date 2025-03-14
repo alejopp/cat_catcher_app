@@ -73,7 +73,17 @@ flutter test
 
 ## 📸 Capturas de Pantalla
 
-(Agrega aquí imágenes de tu aplicación en funcionamiento)
+### 🏠 Splash
+![Pantalla Principal](assets/screenshots/android/splash_screen.png)
+
+### 🏠 Pantalla Principal
+![Pantalla Principal](assets/screenshots/android/landing_screen1.png)
+
+### 🔍 Pantalla de Principal 2
+![Pantalla Principal](assets/screenshots/android/landing_screen2.png)
+
+### 📄 Detalle de una Raza
+![Detalle de Raza](assets/screenshots/android/cat_detail_screen.png)
 
 ## 📄 Licencia
 
