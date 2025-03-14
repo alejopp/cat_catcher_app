@@ -18,7 +18,7 @@ final routes = GoRouter(
     ),
     GoRoute(
       path: Routes.landingScreen,
-      builder: (context, state) => const LandingScreen(),
+      builder: (context, state) => LandingScreen(),
     ),
     GoRoute(
       path: Routes.catDetailScreen,

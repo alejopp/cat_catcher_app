@@ -5,6 +5,7 @@ import 'package:cat_catcher_app/features/network/domain/entities/custom_response
 import 'package:cat_catcher_app/features/network/domain/services/network_service.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class DioNetworkService extends NetworkService with ExceptionHandler {
   final Dio dio;
@@ -21,14 +22,11 @@ class DioNetworkService extends NetworkService with ExceptionHandler {
   @override
   String get baseUrl => AppConfig.baseUrl;
 
-  //TODO add api key to ENV
   @override
   Map<String, Object> get headers => {
         'content-type': 'application/json',
-        'x-api-key':
-            'live_5fBC4DuBSUuqOqxICkSZ6aYOuz0aQsKz0gRnE7IeVblxCK0i9WHKSAGFP8PokwoS',
+        'x-api-key': dotenv.env['API_KEY'] ?? '',
       };
-
   @override
   Future<Either<ApiFailure, CustomResponse>> get(String endpoint,
       {Map<String, dynamic>? queryParameters}) {

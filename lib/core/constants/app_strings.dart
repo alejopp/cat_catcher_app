@@ -15,6 +15,8 @@ class AppStrings {
 
   static String more = "Más...";
 
+  static var searchBreadHint = '¿Qué raza buscas?';
+
   static String lifeSpan(String lifeSpan) =>
       "Esperanza de vida: $lifeSpan años";
 

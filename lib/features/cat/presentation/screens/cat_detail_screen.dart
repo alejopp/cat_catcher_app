@@ -32,7 +32,7 @@ class CatDetailScreen extends StatelessWidget {
       iconTheme: IconThemeData(color: Colors.white),
       title: Text(
         catData.name,
-        style: AppStyles.bodyNormalBoldStyle,
+        style: AppStyles.bodyLargeBoldStyle,
       ),
     );
   }

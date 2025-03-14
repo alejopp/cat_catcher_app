@@ -20,4 +20,10 @@ class AppStyles {
     color: Colors.white,
     fontSize: 14.sp,
   );
+
+  static var bodyLargeBoldStyle = GoogleFonts.montserrat(
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 20.sp,
+  );
 }
