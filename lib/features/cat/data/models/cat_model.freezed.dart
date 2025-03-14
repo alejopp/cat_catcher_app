@@ -23,9 +23,18 @@ mixin _$CatModel {
   String? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get origin => throw _privateConstructorUsedError;
-  int? get intelligence => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get temperament => throw _privateConstructorUsedError;
+  @JsonKey(name: 'country_code')
+  String? get countryCode => throw _privateConstructorUsedError;
+  int? get intelligence => throw _privateConstructorUsedError;
+  int? get adaptability => throw _privateConstructorUsedError;
+  @JsonKey(name: 'child_friendly')
+  int? get childFriendly => throw _privateConstructorUsedError;
+  @JsonKey(name: 'social_needs')
+  int? get socialNeeds => throw _privateConstructorUsedError;
+  @JsonKey(name: 'dog_friendly')
+  int? get dogFriendly => throw _privateConstructorUsedError;
   @JsonKey(name: 'life_span')
   String? get lifeSpan => throw _privateConstructorUsedError;
   @JsonKey(name: 'wikipedia_url')
@@ -51,9 +60,14 @@ abstract class $CatModelCopyWith<$Res> {
       {String? id,
       String? name,
       String? origin,
-      int? intelligence,
       String? description,
       String? temperament,
+      @JsonKey(name: 'country_code') String? countryCode,
+      int? intelligence,
+      int? adaptability,
+      @JsonKey(name: 'child_friendly') int? childFriendly,
+      @JsonKey(name: 'social_needs') int? socialNeeds,
+      @JsonKey(name: 'dog_friendly') int? dogFriendly,
       @JsonKey(name: 'life_span') String? lifeSpan,
       @JsonKey(name: 'wikipedia_url') String? wikipediaUrl,
       CatImageModel? image});
@@ -79,9 +93,14 @@ class _$CatModelCopyWithImpl<$Res, $Val extends CatModel>
     Object? id = freezed,
     Object? name = freezed,
     Object? origin = freezed,
-    Object? intelligence = freezed,
     Object? description = freezed,
     Object? temperament = freezed,
+    Object? countryCode = freezed,
+    Object? intelligence = freezed,
+    Object? adaptability = freezed,
+    Object? childFriendly = freezed,
+    Object? socialNeeds = freezed,
+    Object? dogFriendly = freezed,
     Object? lifeSpan = freezed,
     Object? wikipediaUrl = freezed,
     Object? image = freezed,
@@ -99,10 +118,6 @@ class _$CatModelCopyWithImpl<$Res, $Val extends CatModel>
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
               as String?,
-      intelligence: freezed == intelligence
-          ? _value.intelligence
-          : intelligence // ignore: cast_nullable_to_non_nullable
-              as int?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -111,6 +126,30 @@ class _$CatModelCopyWithImpl<$Res, $Val extends CatModel>
           ? _value.temperament
           : temperament // ignore: cast_nullable_to_non_nullable
               as String?,
+      countryCode: freezed == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      intelligence: freezed == intelligence
+          ? _value.intelligence
+          : intelligence // ignore: cast_nullable_to_non_nullable
+              as int?,
+      adaptability: freezed == adaptability
+          ? _value.adaptability
+          : adaptability // ignore: cast_nullable_to_non_nullable
+              as int?,
+      childFriendly: freezed == childFriendly
+          ? _value.childFriendly
+          : childFriendly // ignore: cast_nullable_to_non_nullable
+              as int?,
+      socialNeeds: freezed == socialNeeds
+          ? _value.socialNeeds
+          : socialNeeds // ignore: cast_nullable_to_non_nullable
+              as int?,
+      dogFriendly: freezed == dogFriendly
+          ? _value.dogFriendly
+          : dogFriendly // ignore: cast_nullable_to_non_nullable
+              as int?,
       lifeSpan: freezed == lifeSpan
           ? _value.lifeSpan
           : lifeSpan // ignore: cast_nullable_to_non_nullable
@@ -153,9 +192,14 @@ abstract class _$$CatModelImplCopyWith<$Res>
       {String? id,
       String? name,
       String? origin,
-      int? intelligence,
       String? description,
       String? temperament,
+      @JsonKey(name: 'country_code') String? countryCode,
+      int? intelligence,
+      int? adaptability,
+      @JsonKey(name: 'child_friendly') int? childFriendly,
+      @JsonKey(name: 'social_needs') int? socialNeeds,
+      @JsonKey(name: 'dog_friendly') int? dogFriendly,
       @JsonKey(name: 'life_span') String? lifeSpan,
       @JsonKey(name: 'wikipedia_url') String? wikipediaUrl,
       CatImageModel? image});
@@ -180,9 +224,14 @@ class __$$CatModelImplCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = freezed,
     Object? origin = freezed,
-    Object? intelligence = freezed,
     Object? description = freezed,
     Object? temperament = freezed,
+    Object? countryCode = freezed,
+    Object? intelligence = freezed,
+    Object? adaptability = freezed,
+    Object? childFriendly = freezed,
+    Object? socialNeeds = freezed,
+    Object? dogFriendly = freezed,
     Object? lifeSpan = freezed,
     Object? wikipediaUrl = freezed,
     Object? image = freezed,
@@ -200,10 +249,6 @@ class __$$CatModelImplCopyWithImpl<$Res>
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
               as String?,
-      intelligence: freezed == intelligence
-          ? _value.intelligence
-          : intelligence // ignore: cast_nullable_to_non_nullable
-              as int?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -212,6 +257,30 @@ class __$$CatModelImplCopyWithImpl<$Res>
           ? _value.temperament
           : temperament // ignore: cast_nullable_to_non_nullable
               as String?,
+      countryCode: freezed == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      intelligence: freezed == intelligence
+          ? _value.intelligence
+          : intelligence // ignore: cast_nullable_to_non_nullable
+              as int?,
+      adaptability: freezed == adaptability
+          ? _value.adaptability
+          : adaptability // ignore: cast_nullable_to_non_nullable
+              as int?,
+      childFriendly: freezed == childFriendly
+          ? _value.childFriendly
+          : childFriendly // ignore: cast_nullable_to_non_nullable
+              as int?,
+      socialNeeds: freezed == socialNeeds
+          ? _value.socialNeeds
+          : socialNeeds // ignore: cast_nullable_to_non_nullable
+              as int?,
+      dogFriendly: freezed == dogFriendly
+          ? _value.dogFriendly
+          : dogFriendly // ignore: cast_nullable_to_non_nullable
+              as int?,
       lifeSpan: freezed == lifeSpan
           ? _value.lifeSpan
           : lifeSpan // ignore: cast_nullable_to_non_nullable
@@ -235,9 +304,14 @@ class _$CatModelImpl implements _CatModel {
       {this.id,
       this.name,
       this.origin,
-      this.intelligence,
       this.description,
       this.temperament,
+      @JsonKey(name: 'country_code') this.countryCode,
+      this.intelligence,
+      this.adaptability,
+      @JsonKey(name: 'child_friendly') this.childFriendly,
+      @JsonKey(name: 'social_needs') this.socialNeeds,
+      @JsonKey(name: 'dog_friendly') this.dogFriendly,
       @JsonKey(name: 'life_span') this.lifeSpan,
       @JsonKey(name: 'wikipedia_url') this.wikipediaUrl,
       this.image});
@@ -252,11 +326,25 @@ class _$CatModelImpl implements _CatModel {
   @override
   final String? origin;
   @override
-  final int? intelligence;
-  @override
   final String? description;
   @override
   final String? temperament;
+  @override
+  @JsonKey(name: 'country_code')
+  final String? countryCode;
+  @override
+  final int? intelligence;
+  @override
+  final int? adaptability;
+  @override
+  @JsonKey(name: 'child_friendly')
+  final int? childFriendly;
+  @override
+  @JsonKey(name: 'social_needs')
+  final int? socialNeeds;
+  @override
+  @JsonKey(name: 'dog_friendly')
+  final int? dogFriendly;
   @override
   @JsonKey(name: 'life_span')
   final String? lifeSpan;
@@ -268,7 +356,7 @@ class _$CatModelImpl implements _CatModel {
 
   @override
   String toString() {
-    return 'CatModel(id: $id, name: $name, origin: $origin, intelligence: $intelligence, description: $description, temperament: $temperament, lifeSpan: $lifeSpan, wikipediaUrl: $wikipediaUrl, image: $image)';
+    return 'CatModel(id: $id, name: $name, origin: $origin, description: $description, temperament: $temperament, countryCode: $countryCode, intelligence: $intelligence, adaptability: $adaptability, childFriendly: $childFriendly, socialNeeds: $socialNeeds, dogFriendly: $dogFriendly, lifeSpan: $lifeSpan, wikipediaUrl: $wikipediaUrl, image: $image)';
   }
 
   @override
@@ -279,12 +367,22 @@ class _$CatModelImpl implements _CatModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.origin, origin) || other.origin == origin) &&
-            (identical(other.intelligence, intelligence) ||
-                other.intelligence == intelligence) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.temperament, temperament) ||
                 other.temperament == temperament) &&
+            (identical(other.countryCode, countryCode) ||
+                other.countryCode == countryCode) &&
+            (identical(other.intelligence, intelligence) ||
+                other.intelligence == intelligence) &&
+            (identical(other.adaptability, adaptability) ||
+                other.adaptability == adaptability) &&
+            (identical(other.childFriendly, childFriendly) ||
+                other.childFriendly == childFriendly) &&
+            (identical(other.socialNeeds, socialNeeds) ||
+                other.socialNeeds == socialNeeds) &&
+            (identical(other.dogFriendly, dogFriendly) ||
+                other.dogFriendly == dogFriendly) &&
             (identical(other.lifeSpan, lifeSpan) ||
                 other.lifeSpan == lifeSpan) &&
             (identical(other.wikipediaUrl, wikipediaUrl) ||
@@ -294,8 +392,22 @@ class _$CatModelImpl implements _CatModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, origin, intelligence,
-      description, temperament, lifeSpan, wikipediaUrl, image);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      origin,
+      description,
+      temperament,
+      countryCode,
+      intelligence,
+      adaptability,
+      childFriendly,
+      socialNeeds,
+      dogFriendly,
+      lifeSpan,
+      wikipediaUrl,
+      image);
 
   /// Create a copy of CatModel
   /// with the given fields replaced by the non-null parameter values.
@@ -318,9 +430,14 @@ abstract class _CatModel implements CatModel {
       {final String? id,
       final String? name,
       final String? origin,
-      final int? intelligence,
       final String? description,
       final String? temperament,
+      @JsonKey(name: 'country_code') final String? countryCode,
+      final int? intelligence,
+      final int? adaptability,
+      @JsonKey(name: 'child_friendly') final int? childFriendly,
+      @JsonKey(name: 'social_needs') final int? socialNeeds,
+      @JsonKey(name: 'dog_friendly') final int? dogFriendly,
       @JsonKey(name: 'life_span') final String? lifeSpan,
       @JsonKey(name: 'wikipedia_url') final String? wikipediaUrl,
       final CatImageModel? image}) = _$CatModelImpl;
@@ -335,11 +452,25 @@ abstract class _CatModel implements CatModel {
   @override
   String? get origin;
   @override
-  int? get intelligence;
-  @override
   String? get description;
   @override
   String? get temperament;
+  @override
+  @JsonKey(name: 'country_code')
+  String? get countryCode;
+  @override
+  int? get intelligence;
+  @override
+  int? get adaptability;
+  @override
+  @JsonKey(name: 'child_friendly')
+  int? get childFriendly;
+  @override
+  @JsonKey(name: 'social_needs')
+  int? get socialNeeds;
+  @override
+  @JsonKey(name: 'dog_friendly')
+  int? get dogFriendly;
   @override
   @JsonKey(name: 'life_span')
   String? get lifeSpan;

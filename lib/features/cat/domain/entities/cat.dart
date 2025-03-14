@@ -10,10 +10,16 @@ class Cat with _$Cat {
     required String id,
     required String name,
     required String origin,
-    required int intelligence,
+    required String temperament,
     required String description,
     required String lifeSpan,
     required String wikipediaUrl,
+    required String countryCode,
+    required int intelligence,
+    required int adaptability,
+    required int childFriendly,
+    required int socialNeeds,
+    required int dogFriendly,
     CatImage? image,
   }) = _Cat;
 }

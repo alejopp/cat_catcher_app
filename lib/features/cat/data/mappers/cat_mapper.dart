@@ -17,5 +17,11 @@ class CatMapper {
           height: catModel.image?.height ?? 0,
           url: catModel.image?.url ?? '',
         ),
+        temperament: catModel.temperament ?? '',
+        countryCode: catModel.countryCode ?? '',
+        adaptability: catModel.adaptability ?? 0,
+        childFriendly: catModel.childFriendly ?? 0,
+        socialNeeds: catModel.socialNeeds ?? 0,
+        dogFriendly: catModel.dogFriendly ?? 0,
       );
 }

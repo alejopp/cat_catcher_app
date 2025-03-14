@@ -19,10 +19,16 @@ mixin _$Cat {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get origin => throw _privateConstructorUsedError;
-  int get intelligence => throw _privateConstructorUsedError;
+  String get temperament => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get lifeSpan => throw _privateConstructorUsedError;
   String get wikipediaUrl => throw _privateConstructorUsedError;
+  String get countryCode => throw _privateConstructorUsedError;
+  int get intelligence => throw _privateConstructorUsedError;
+  int get adaptability => throw _privateConstructorUsedError;
+  int get childFriendly => throw _privateConstructorUsedError;
+  int get socialNeeds => throw _privateConstructorUsedError;
+  int get dogFriendly => throw _privateConstructorUsedError;
   CatImage? get image => throw _privateConstructorUsedError;
 
   /// Create a copy of Cat
@@ -40,10 +46,16 @@ abstract class $CatCopyWith<$Res> {
       {String id,
       String name,
       String origin,
-      int intelligence,
+      String temperament,
       String description,
       String lifeSpan,
       String wikipediaUrl,
+      String countryCode,
+      int intelligence,
+      int adaptability,
+      int childFriendly,
+      int socialNeeds,
+      int dogFriendly,
       CatImage? image});
 
   $CatImageCopyWith<$Res>? get image;
@@ -66,10 +78,16 @@ class _$CatCopyWithImpl<$Res, $Val extends Cat> implements $CatCopyWith<$Res> {
     Object? id = null,
     Object? name = null,
     Object? origin = null,
-    Object? intelligence = null,
+    Object? temperament = null,
     Object? description = null,
     Object? lifeSpan = null,
     Object? wikipediaUrl = null,
+    Object? countryCode = null,
+    Object? intelligence = null,
+    Object? adaptability = null,
+    Object? childFriendly = null,
+    Object? socialNeeds = null,
+    Object? dogFriendly = null,
     Object? image = freezed,
   }) {
     return _then(_value.copyWith(
@@ -85,10 +103,10 @@ class _$CatCopyWithImpl<$Res, $Val extends Cat> implements $CatCopyWith<$Res> {
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
               as String,
-      intelligence: null == intelligence
-          ? _value.intelligence
-          : intelligence // ignore: cast_nullable_to_non_nullable
-              as int,
+      temperament: null == temperament
+          ? _value.temperament
+          : temperament // ignore: cast_nullable_to_non_nullable
+              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -101,6 +119,30 @@ class _$CatCopyWithImpl<$Res, $Val extends Cat> implements $CatCopyWith<$Res> {
           ? _value.wikipediaUrl
           : wikipediaUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      countryCode: null == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      intelligence: null == intelligence
+          ? _value.intelligence
+          : intelligence // ignore: cast_nullable_to_non_nullable
+              as int,
+      adaptability: null == adaptability
+          ? _value.adaptability
+          : adaptability // ignore: cast_nullable_to_non_nullable
+              as int,
+      childFriendly: null == childFriendly
+          ? _value.childFriendly
+          : childFriendly // ignore: cast_nullable_to_non_nullable
+              as int,
+      socialNeeds: null == socialNeeds
+          ? _value.socialNeeds
+          : socialNeeds // ignore: cast_nullable_to_non_nullable
+              as int,
+      dogFriendly: null == dogFriendly
+          ? _value.dogFriendly
+          : dogFriendly // ignore: cast_nullable_to_non_nullable
+              as int,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -133,10 +175,16 @@ abstract class _$$CatImplCopyWith<$Res> implements $CatCopyWith<$Res> {
       {String id,
       String name,
       String origin,
-      int intelligence,
+      String temperament,
       String description,
       String lifeSpan,
       String wikipediaUrl,
+      String countryCode,
+      int intelligence,
+      int adaptability,
+      int childFriendly,
+      int socialNeeds,
+      int dogFriendly,
       CatImage? image});
 
   @override
@@ -157,10 +205,16 @@ class __$$CatImplCopyWithImpl<$Res> extends _$CatCopyWithImpl<$Res, _$CatImpl>
     Object? id = null,
     Object? name = null,
     Object? origin = null,
-    Object? intelligence = null,
+    Object? temperament = null,
     Object? description = null,
     Object? lifeSpan = null,
     Object? wikipediaUrl = null,
+    Object? countryCode = null,
+    Object? intelligence = null,
+    Object? adaptability = null,
+    Object? childFriendly = null,
+    Object? socialNeeds = null,
+    Object? dogFriendly = null,
     Object? image = freezed,
   }) {
     return _then(_$CatImpl(
@@ -176,10 +230,10 @@ class __$$CatImplCopyWithImpl<$Res> extends _$CatCopyWithImpl<$Res, _$CatImpl>
           ? _value.origin
           : origin // ignore: cast_nullable_to_non_nullable
               as String,
-      intelligence: null == intelligence
-          ? _value.intelligence
-          : intelligence // ignore: cast_nullable_to_non_nullable
-              as int,
+      temperament: null == temperament
+          ? _value.temperament
+          : temperament // ignore: cast_nullable_to_non_nullable
+              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -192,6 +246,30 @@ class __$$CatImplCopyWithImpl<$Res> extends _$CatCopyWithImpl<$Res, _$CatImpl>
           ? _value.wikipediaUrl
           : wikipediaUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      countryCode: null == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      intelligence: null == intelligence
+          ? _value.intelligence
+          : intelligence // ignore: cast_nullable_to_non_nullable
+              as int,
+      adaptability: null == adaptability
+          ? _value.adaptability
+          : adaptability // ignore: cast_nullable_to_non_nullable
+              as int,
+      childFriendly: null == childFriendly
+          ? _value.childFriendly
+          : childFriendly // ignore: cast_nullable_to_non_nullable
+              as int,
+      socialNeeds: null == socialNeeds
+          ? _value.socialNeeds
+          : socialNeeds // ignore: cast_nullable_to_non_nullable
+              as int,
+      dogFriendly: null == dogFriendly
+          ? _value.dogFriendly
+          : dogFriendly // ignore: cast_nullable_to_non_nullable
+              as int,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -207,10 +285,16 @@ class _$CatImpl implements _Cat {
       {required this.id,
       required this.name,
       required this.origin,
-      required this.intelligence,
+      required this.temperament,
       required this.description,
       required this.lifeSpan,
       required this.wikipediaUrl,
+      required this.countryCode,
+      required this.intelligence,
+      required this.adaptability,
+      required this.childFriendly,
+      required this.socialNeeds,
+      required this.dogFriendly,
       this.image});
 
   @override
@@ -220,7 +304,7 @@ class _$CatImpl implements _Cat {
   @override
   final String origin;
   @override
-  final int intelligence;
+  final String temperament;
   @override
   final String description;
   @override
@@ -228,11 +312,23 @@ class _$CatImpl implements _Cat {
   @override
   final String wikipediaUrl;
   @override
+  final String countryCode;
+  @override
+  final int intelligence;
+  @override
+  final int adaptability;
+  @override
+  final int childFriendly;
+  @override
+  final int socialNeeds;
+  @override
+  final int dogFriendly;
+  @override
   final CatImage? image;
 
   @override
   String toString() {
-    return 'Cat(id: $id, name: $name, origin: $origin, intelligence: $intelligence, description: $description, lifeSpan: $lifeSpan, wikipediaUrl: $wikipediaUrl, image: $image)';
+    return 'Cat(id: $id, name: $name, origin: $origin, temperament: $temperament, description: $description, lifeSpan: $lifeSpan, wikipediaUrl: $wikipediaUrl, countryCode: $countryCode, intelligence: $intelligence, adaptability: $adaptability, childFriendly: $childFriendly, socialNeeds: $socialNeeds, dogFriendly: $dogFriendly, image: $image)';
   }
 
   @override
@@ -243,20 +339,46 @@ class _$CatImpl implements _Cat {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.origin, origin) || other.origin == origin) &&
-            (identical(other.intelligence, intelligence) ||
-                other.intelligence == intelligence) &&
+            (identical(other.temperament, temperament) ||
+                other.temperament == temperament) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.lifeSpan, lifeSpan) ||
                 other.lifeSpan == lifeSpan) &&
             (identical(other.wikipediaUrl, wikipediaUrl) ||
                 other.wikipediaUrl == wikipediaUrl) &&
+            (identical(other.countryCode, countryCode) ||
+                other.countryCode == countryCode) &&
+            (identical(other.intelligence, intelligence) ||
+                other.intelligence == intelligence) &&
+            (identical(other.adaptability, adaptability) ||
+                other.adaptability == adaptability) &&
+            (identical(other.childFriendly, childFriendly) ||
+                other.childFriendly == childFriendly) &&
+            (identical(other.socialNeeds, socialNeeds) ||
+                other.socialNeeds == socialNeeds) &&
+            (identical(other.dogFriendly, dogFriendly) ||
+                other.dogFriendly == dogFriendly) &&
             (identical(other.image, image) || other.image == image));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, origin, intelligence,
-      description, lifeSpan, wikipediaUrl, image);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      origin,
+      temperament,
+      description,
+      lifeSpan,
+      wikipediaUrl,
+      countryCode,
+      intelligence,
+      adaptability,
+      childFriendly,
+      socialNeeds,
+      dogFriendly,
+      image);
 
   /// Create a copy of Cat
   /// with the given fields replaced by the non-null parameter values.
@@ -272,10 +394,16 @@ abstract class _Cat implements Cat {
       {required final String id,
       required final String name,
       required final String origin,
-      required final int intelligence,
+      required final String temperament,
       required final String description,
       required final String lifeSpan,
       required final String wikipediaUrl,
+      required final String countryCode,
+      required final int intelligence,
+      required final int adaptability,
+      required final int childFriendly,
+      required final int socialNeeds,
+      required final int dogFriendly,
       final CatImage? image}) = _$CatImpl;
 
   @override
@@ -285,13 +413,25 @@ abstract class _Cat implements Cat {
   @override
   String get origin;
   @override
-  int get intelligence;
+  String get temperament;
   @override
   String get description;
   @override
   String get lifeSpan;
   @override
   String get wikipediaUrl;
+  @override
+  String get countryCode;
+  @override
+  int get intelligence;
+  @override
+  int get adaptability;
+  @override
+  int get childFriendly;
+  @override
+  int get socialNeeds;
+  @override
+  int get dogFriendly;
   @override
   CatImage? get image;
 

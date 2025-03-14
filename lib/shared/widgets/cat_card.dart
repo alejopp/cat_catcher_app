@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cat_catcher_app/core/constants/app_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomCardWidget extends StatelessWidget {
@@ -23,16 +25,16 @@ class CustomCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8.r),
       child: Card(
         color: const Color(0xFFBDBDFF),
         elevation: 6,
         shadowColor: Colors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
         ),
         child: SizedBox(
-          height: 300,
+          height: 300.h,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -48,7 +50,7 @@ class CustomCardWidget extends StatelessWidget {
 
   Padding _buildCardFooter() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8.r),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -56,30 +58,30 @@ class CustomCardWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'País de origen:',
-                style: const TextStyle(
+                AppStrings.originCountry,
+                style: TextStyle(
                   fontFamily: 'Montserrat',
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF330072),
                 ),
               ),
               SizedBox(
-                height: 3,
+                height: 3.h,
               ),
               Row(
                 children: [
                   SvgPicture.network(
                     countryFlagUrl,
-                    width: 16,
-                    height: 16,
+                    width: 16.w,
+                    height: 16.h,
                   ),
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8.w),
                   Text(
                     country,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontFamily: 'Montserrat',
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: Color(0xFF330072),
                     ),
                   ),
@@ -91,16 +93,16 @@ class CustomCardWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Intelligencia:',
-                style: const TextStyle(
+                '${AppStrings.intelligence}:',
+                style: TextStyle(
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.bold,
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   color: Color(0xFF330072),
                 ),
               ),
               SizedBox(
-                height: 3,
+                height: 3.h,
               ),
               Row(
                 children: List.generate(5, (index) {
@@ -163,8 +165,12 @@ class CustomCardWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
-            child: const Text("Más...",
-                style: TextStyle(color: Color(0xFF330072))),
+            child: Text(
+              AppStrings.more,
+              style: TextStyle(
+                color: Color(0xFF330072),
+              ),
+            ),
           ),
         ],
       ),

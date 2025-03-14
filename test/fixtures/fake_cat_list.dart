@@ -16,5 +16,11 @@ final fakeCatList = [
       height: 1445,
       url: "https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg",
     ),
+    temperament: '',
+    adaptability: 2,
+    childFriendly: 3,
+    socialNeeds: 4,
+    dogFriendly: 5,
+    countryCode: 'co',
   ),
 ];

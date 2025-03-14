@@ -1,3 +1,4 @@
+import 'package:cat_catcher_app/features/cat/domain/entities/cat.dart';
 import 'package:cat_catcher_app/features/cat/presentation/screens/cat_detail_screen.dart';
 import 'package:cat_catcher_app/features/cat/presentation/screens/landing_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -15,7 +16,10 @@ final routes = GoRouter(
     ),
     GoRoute(
       path: Routes.catDetailScreen,
-      builder: (context, state) => const CatDetailScreen(),
+      builder: (context, state) {
+        final params = state.extra as Cat;
+        return CatDetailScreen(catData: params);
+      },
     ),
   ],
 );
