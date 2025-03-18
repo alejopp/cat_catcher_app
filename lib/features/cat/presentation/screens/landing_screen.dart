@@ -2,11 +2,14 @@ import 'package:cat_catcher_app/core/constants/app_strings.dart';
 import 'package:cat_catcher_app/core/routes/routes.dart';
 import 'package:cat_catcher_app/core/theme/app_styles.dart';
 import 'package:cat_catcher_app/features/cat/presentation/providers/cat_provider.dart';
+import 'package:cat_catcher_app/features/network/presentation/provider/connectivity_provider.dart';
 import 'package:cat_catcher_app/shared/widgets/custom_card_widget.dart';
 import 'package:cat_catcher_app/shared/widgets/custom_search_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
 
 class LandingScreen extends ConsumerStatefulWidget {
   LandingScreen({super.key});
@@ -55,6 +58,16 @@ class _LandingScreenState extends ConsumerState {
   }
 
   _buildBody(BuildContext context, WidgetRef ref) {
+    ref.listen(connectivityProvider, (previous, next) async {
+      if (next.isConnected) {
+        await ref.read(catNotifierProvider.notifier).fetchCats();
+      }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            content: Text(next.isConnected ? "Conectado" : "Desconectado")),
+      );
+    });
+
     final bool searching =
         ref.watch(catNotifierProvider.select((value) => value.searching));
     return CustomScrollView(
@@ -76,37 +89,52 @@ class _LandingScreenState extends ConsumerState {
   }
 
   _buildCatList(WidgetRef ref) {
+    final connectivityState = ref.watch(connectivityProvider);
     final catState = ref.watch(catNotifierProvider);
-    if (catState.loading) {
-      return const SliverFillRemaining(
-        hasScrollBody: false,
-        child: Center(child: CircularProgressIndicator()),
-      );
-    } else if (catState.error) {
+    if (connectivityState.isConnected) {
+      if (catState.loading) {
+        return const SliverFillRemaining(
+          hasScrollBody: false,
+          child: Center(child: CircularProgressIndicator()),
+        );
+      } else if (catState.error) {
+        return SliverFillRemaining(
+          hasScrollBody: false,
+          child: Center(child: Text(AppStrings.errorMessage('error'))),
+        );
+      } else {
+        final cats = catState.filteredCats;
+        return SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (context, index) {
+              final cat = cats[index];
+              return CustomCardWidget(
+                catBreed: cat.name,
+                imageUrl: cat.image?.url ??
+                    "https://cdn2.thecatapi.com/images/bpc.jpg",
+                country: cat.origin,
+                countryFlagUrl:
+                    'https://flagcdn.com/${cat.countryCode.toLowerCase()}.svg',
+                intelligence: cat.intelligence,
+                onMorePressed: () {
+                  context.push(Routes.catDetailScreen, extra: cat);
+                },
+              );
+            },
+            childCount: cats.length,
+          ),
+        );
+      }
+    } else {
       return SliverFillRemaining(
         hasScrollBody: false,
-        child: Center(child: Text(AppStrings.errorMessage('error'))),
-      );
-    } else {
-      final cats = catState.filteredCats;
-      return SliverList(
-        delegate: SliverChildBuilderDelegate(
-          (context, index) {
-            final cat = cats[index];
-            return CustomCardWidget(
-              catBreed: cat.name,
-              imageUrl:
-                  cat.image?.url ?? "https://cdn2.thecatapi.com/images/bpc.jpg",
-              country: cat.origin,
-              countryFlagUrl:
-                  'https://flagcdn.com/${cat.countryCode.toLowerCase()}.svg',
-              intelligence: cat.intelligence,
-              onMorePressed: () {
-                context.push(Routes.catDetailScreen, extra: cat);
-              },
-            );
-          },
-          childCount: cats.length,
+        child: Center(
+          child: Lottie.asset(
+            'assets/animations/no_internet_lottie.json',
+            width: 200.w,
+            height: 200.h,
+            fit: BoxFit.cover,
+          ),
         ),
       );
     }
