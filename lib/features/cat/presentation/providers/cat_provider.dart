@@ -17,11 +17,11 @@ final catNotifierProvider = StateNotifierProvider<CatNotifier, CatState>((ref) {
 class CatNotifier extends StateNotifier<CatState> {
   final FetchCatsUseCase _getCatsUseCase;
 
-  CatNotifier(this._getCatsUseCase) : super(CatState()) {
-    fetchCats();
-  }
+  CatNotifier(this._getCatsUseCase) : super(CatState());
 
   Future<void> fetchCats() async {
+    state = state.copyWith(loading: true);
+
     final result = await _getCatsUseCase();
 
     result.fold(
@@ -60,7 +60,7 @@ class CatState {
   CatState({
     this.cats = const [],
     this.filteredCats = const [],
-    this.loading = true,
+    this.loading = false,
     this.error = false,
     this.searching = false,
   });
