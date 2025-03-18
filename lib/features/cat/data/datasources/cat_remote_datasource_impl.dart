@@ -1,7 +1,5 @@
 import 'package:cat_catcher_app/features/cat/data/datasources/cat_remote_datasource.dart';
-import 'package:cat_catcher_app/features/cat/data/mappers/cat_mapper.dart';
 import 'package:cat_catcher_app/features/cat/data/models/cat_model.dart';
-import 'package:cat_catcher_app/features/cat/domain/entities/cat.dart';
 import 'package:cat_catcher_app/features/network/data/api_endpoints.dart';
 import 'package:cat_catcher_app/features/network/domain/entities/api_failure.dart';
 import 'package:cat_catcher_app/features/network/domain/entities/custom_response.dart';
@@ -14,7 +12,7 @@ class CatRemoteDatasourceImpl extends CatDatasource {
   CatRemoteDatasourceImpl(this.networkService);
 
   @override
-  Future<Either<ApiFailure, List<Cat>>> fetchCats() async {
+  Future<Either<ApiFailure, List<CatModel>>> fetchCats() async {
     final Either<ApiFailure, CustomResponse> response =
         await networkService.get(ApiEndpoint.breeds());
 
@@ -22,9 +20,7 @@ class CatRemoteDatasourceImpl extends CatDatasource {
       final List<dynamic> jsonData = r.data;
       final List<CatModel> catModelData =
           jsonData.map((value) => CatModel.fromJson(value)).toList();
-      final cats =
-          catModelData.map((e) => CatMapper.fromCatModelToCat(e)).toList();
-      return Right(cats);
+      return Right(catModelData);
     });
   }
 }
