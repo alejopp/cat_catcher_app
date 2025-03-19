@@ -12,7 +12,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 class LandingScreen extends ConsumerStatefulWidget {
-  LandingScreen({super.key});
+  const LandingScreen({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() {
@@ -68,8 +68,7 @@ class _LandingScreenState extends ConsumerState {
             content: Text(
               next.isConnected ? AppStrings.connected : AppStrings.noConnected,
               style: TextStyle(
-                color: Color(0xFF330072),
-              ),
+                  color: Color(0xFF330072), fontWeight: FontWeight.bold),
             ),
             backgroundColor: Color(0xFFBDBDFF),
           ),
