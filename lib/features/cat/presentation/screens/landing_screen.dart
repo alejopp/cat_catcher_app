@@ -62,10 +62,19 @@ class _LandingScreenState extends ConsumerState {
       if (next.isConnected) {
         await ref.read(catNotifierProvider.notifier).fetchCats();
       }
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-            content: Text(next.isConnected ? "Conectado" : "Desconectado")),
-      );
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              next.isConnected ? AppStrings.connected : AppStrings.noConnected,
+              style: TextStyle(
+                color: Color(0xFF330072),
+              ),
+            ),
+            backgroundColor: Color(0xFFBDBDFF),
+          ),
+        );
+      }
     });
 
     final bool searching =
