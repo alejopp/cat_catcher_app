@@ -24,5 +24,7 @@ class AppStrings {
   static String lifeSpan(String lifeSpan) =>
       "Esperanza de vida: $lifeSpan años";
 
+  static String temperament(String temperament) => "Temperamento: $temperament";
+
   static String errorMessage(Object error) => "Error: $error";
 }
