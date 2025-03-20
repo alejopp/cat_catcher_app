@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cat_catcher_app/core/constants/app_strings.dart';
-import 'package:cat_catcher_app/core/theme/app_styles.dart';
 import 'package:cat_catcher_app/features/cat/domain/entities/cat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,7 +17,6 @@ class CatDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFF330072),
         appBar: _buildAppBar(),
         body: _buildBody(context),
       ),
@@ -27,12 +25,9 @@ class CatDetailScreen extends StatelessWidget {
 
   _buildAppBar() {
     return AppBar(
-      backgroundColor: Color(0xFF330072), // Color morado oscuro
       centerTitle: true,
-      iconTheme: IconThemeData(color: Colors.white),
       title: Text(
         catData.name,
-        style: AppStyles.bodyLargeBoldStyle,
       ),
     );
   }
@@ -41,7 +36,7 @@ class CatDetailScreen extends StatelessWidget {
     return Column(
       children: [
         _buildImageSection(context),
-        _buildDetailsSection(),
+        _buildDetailsSection(context),
       ],
     );
   }
@@ -61,7 +56,7 @@ class CatDetailScreen extends StatelessWidget {
     );
   }
 
-  Expanded _buildDetailsSection() {
+  Expanded _buildDetailsSection(BuildContext context) {
     return Expanded(
       child: Scrollbar(
         thumbVisibility: true,
@@ -74,7 +69,7 @@ class CatDetailScreen extends StatelessWidget {
                 children: [
                   Text(
                     catData.origin,
-                    style: AppStyles.bodyNormalBoldStyle,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                   SizedBox(width: 10.w),
                   SvgPicture.network(
@@ -86,40 +81,38 @@ class CatDetailScreen extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               Text(
-                catData.description,
-                style: AppStyles.bodyNormalStyle,
+                catData.description, //TODO Verify style
               ),
               SizedBox(height: 20.h),
-              _buildInfoRow(AppStrings.intelligence, catData.intelligence,
-                  Icons.lightbulb),
-              _buildInfoRow(
-                  AppStrings.adaptability, catData.intelligence, Icons.star),
-              _buildInfoRow(AppStrings.childFriendly, catData.childFriendly,
-                  Icons.child_care),
-              _buildInfoRow(
-                  AppStrings.socialNeeds, catData.socialNeeds, Icons.people),
-              _buildInfoRow(
-                  AppStrings.dogFriendly, catData.dogFriendly, Icons.pets),
-              SizedBox(height: 10.h),
+              _buildInfoRow(context, AppStrings.intelligence,
+                  catData.intelligence, Icons.lightbulb),
+              _buildInfoRow(context, AppStrings.adaptability,
+                  catData.intelligence, Icons.star),
+              _buildInfoRow(context, AppStrings.childFriendly,
+                  catData.childFriendly, Icons.child_care),
+              _buildInfoRow(context, AppStrings.socialNeeds,
+                  catData.socialNeeds, Icons.people),
+              _buildInfoRow(context, AppStrings.dogFriendly,
+                  catData.dogFriendly, Icons.pets),
               Row(
                 children: [
                   Icon(Icons.favorite, color: Colors.redAccent),
                   SizedBox(width: 10.w),
                   Text(
-                    AppStrings.lifeSpan(catData.lifeSpan),
-                    style: AppStyles.bodyNormalStyle,
+                    AppStrings.lifeSpan(
+                      catData.lifeSpan,
+                    ),
                   ),
                 ],
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 5.h),
               Row(
                 children: [
                   Icon(Icons.person, color: Colors.blueAccent),
                   SizedBox(width: 10.h),
                   Expanded(
                     child: Text(
-                      catData.temperament,
-                      style: AppStyles.bodyNormalStyle,
+                      AppStrings.temperament(catData.temperament),
                     ),
                   ),
                 ],
@@ -131,7 +124,12 @@ class CatDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoRow(String title, int level, IconData icon) {
+  Widget _buildInfoRow(
+    BuildContext context,
+    String title,
+    int level,
+    IconData icon,
+  ) {
     return Padding(
       padding: EdgeInsets.only(bottom: 10.r),
       child: Row(
@@ -140,7 +138,6 @@ class CatDetailScreen extends StatelessWidget {
           SizedBox(width: 10.w),
           Text(
             "$title: ",
-            style: AppStyles.bodyNormalBoldStyle,
           ),
           Row(
             children: List.generate(

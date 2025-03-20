@@ -17,8 +17,14 @@ class AppStrings {
 
   static var searchBreadHint = '¿Qué raza buscas?';
 
+  static String connected = "Conectado";
+
+  static String noConnected = "Sin Conexión";
+
   static String lifeSpan(String lifeSpan) =>
       "Esperanza de vida: $lifeSpan años";
+
+  static String temperament(String temperament) => "Temperamento: $temperament";
 
   static String errorMessage(Object error) => "Error: $error";
 }

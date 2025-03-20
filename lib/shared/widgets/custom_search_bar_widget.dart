@@ -19,7 +19,6 @@ class CustomSearchBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: Color(0xFF330072),
       floating: false,
       pinned: false,
       expandedHeight: 100.h,
@@ -35,27 +34,21 @@ class CustomSearchBarWidget extends StatelessWidget {
             style: TextStyle(
               decoration: TextDecoration.none,
               decorationThickness: 0,
-              color: Color(0xFF330072),
               fontSize: 14.sp,
             ),
             decoration: InputDecoration(
               hintText: AppStrings.searchBreadHint,
               hintStyle: TextStyle(fontSize: 12.sp, color: Colors.grey),
               filled: true,
-              fillColor: Colors.white,
               prefixIcon: searching
                   ? GestureDetector(
                       onTap: () {
                         onCancelSearch?.call();
                       },
-                      child: Icon(
-                        Icons.clear,
-                        color: Color(0xFF330072),
-                      ),
+                      child: Icon(Icons.clear),
                     )
                   : Icon(
                       Icons.search,
-                      color: Color(0xFF330072),
                     ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.r),

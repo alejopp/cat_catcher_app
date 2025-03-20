@@ -27,9 +27,7 @@ class CustomCardWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(8.r),
       child: Card(
-        color: const Color(0xFFBDBDFF),
         elevation: 6,
-        shadowColor: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.r),
         ),
@@ -38,9 +36,9 @@ class CustomCardWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildCardHeader(),
+              _buildCardHeader(context),
               _buildCardImage(),
-              _buildCardFooter(),
+              _buildCardFooter(context),
             ],
           ),
         ),
@@ -48,7 +46,7 @@ class CustomCardWidget extends StatelessWidget {
     );
   }
 
-  Padding _buildCardFooter() {
+  Padding _buildCardFooter(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(8.r),
       child: Row(
@@ -59,12 +57,7 @@ class CustomCardWidget extends StatelessWidget {
             children: [
               Text(
                 AppStrings.originCountry,
-                style: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF330072),
-                ),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               SizedBox(
                 height: 3.h,
@@ -79,11 +72,6 @@ class CustomCardWidget extends StatelessWidget {
                   SizedBox(width: 8.w),
                   Text(
                     country,
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontSize: 16.sp,
-                      color: Color(0xFF330072),
-                    ),
                   ),
                 ],
               ),
@@ -94,12 +82,7 @@ class CustomCardWidget extends StatelessWidget {
             children: [
               Text(
                 '${AppStrings.intelligence}:',
-                style: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16.sp,
-                  color: Color(0xFF330072),
-                ),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               SizedBox(
                 height: 3.h,
@@ -141,7 +124,7 @@ class CustomCardWidget extends StatelessWidget {
     );
   }
 
-  Padding _buildCardHeader() {
+  Padding _buildCardHeader(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -149,27 +132,17 @@ class CustomCardWidget extends StatelessWidget {
         children: [
           Text(
             catBreed,
-            style: const TextStyle(
-              fontFamily: 'Montserrat',
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF330072),
-            ),
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           ElevatedButton(
             onPressed: onMorePressed,
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white,
-              foregroundColor: Colors.black,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
             child: Text(
               AppStrings.more,
-              style: TextStyle(
-                color: Color(0xFF330072),
-              ),
             ),
           ),
         ],

@@ -1,6 +1,5 @@
 import 'package:cat_catcher_app/core/constants/app_strings.dart';
 import 'package:cat_catcher_app/core/routes/routes.dart';
-import 'package:cat_catcher_app/core/theme/app_styles.dart';
 import 'package:cat_catcher_app/features/cat/presentation/providers/cat_provider.dart';
 import 'package:cat_catcher_app/features/network/presentation/provider/connectivity_provider.dart';
 import 'package:cat_catcher_app/shared/widgets/custom_card_widget.dart';
@@ -12,7 +11,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 class LandingScreen extends ConsumerStatefulWidget {
-  LandingScreen({super.key});
+  const LandingScreen({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() {
@@ -41,7 +40,6 @@ class _LandingScreenState extends ConsumerState {
       child: Scaffold(
         appBar: _buildAppbar(ref),
         body: _buildBody(context, ref),
-        backgroundColor: Color(0xFF330072),
       ),
     );
   }
@@ -50,10 +48,8 @@ class _LandingScreenState extends ConsumerState {
     return AppBar(
       title: Text(
         AppStrings.landingScrrenTitle,
-        style: AppStyles.bodyLargeBoldStyle,
       ),
       centerTitle: true,
-      backgroundColor: Color(0xFF330072),
     );
   }
 
@@ -62,14 +58,20 @@ class _LandingScreenState extends ConsumerState {
       if (next.isConnected) {
         await ref.read(catNotifierProvider.notifier).fetchCats();
       }
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-            content: Text(next.isConnected ? "Conectado" : "Desconectado")),
-      );
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              next.isConnected ? AppStrings.connected : AppStrings.noConnected,
+            ),
+          ),
+        );
+      }
     });
 
     final bool searching =
         ref.watch(catNotifierProvider.select((value) => value.searching));
+
     return CustomScrollView(
       slivers: [
         CustomSearchBarWidget(
