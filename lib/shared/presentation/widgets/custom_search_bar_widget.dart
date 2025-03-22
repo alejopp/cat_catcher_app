@@ -21,6 +21,7 @@ class CustomSearchBarWidget extends StatelessWidget {
     return SliverAppBar(
       floating: false,
       pinned: false,
+      automaticallyImplyLeading: false,
       expandedHeight: 100.h,
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: EdgeInsets.only(bottom: 16.h, left: 16.w, right: 16.w),

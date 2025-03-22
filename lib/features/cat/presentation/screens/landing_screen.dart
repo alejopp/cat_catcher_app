@@ -2,8 +2,9 @@ import 'package:cat_catcher_app/core/constants/app_strings.dart';
 import 'package:cat_catcher_app/core/routes/routes.dart';
 import 'package:cat_catcher_app/features/cat/presentation/providers/cat_provider.dart';
 import 'package:cat_catcher_app/features/network/presentation/provider/connectivity_provider.dart';
-import 'package:cat_catcher_app/shared/widgets/custom_card_widget.dart';
-import 'package:cat_catcher_app/shared/widgets/custom_search_bar_widget.dart';
+import 'package:cat_catcher_app/shared/presentation/widgets/custom_card_widget.dart';
+import 'package:cat_catcher_app/shared/presentation/widgets/custom_drawer.dart';
+import 'package:cat_catcher_app/shared/presentation/widgets/custom_search_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,6 +41,7 @@ class _LandingScreenState extends ConsumerState {
       child: Scaffold(
         appBar: _buildAppbar(ref),
         body: _buildBody(context, ref),
+        drawer: CustomDrawer(),
       ),
     );
   }

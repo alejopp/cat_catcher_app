@@ -21,6 +21,10 @@ class AppStrings {
 
   static String noConnected = "Sin Conexión";
 
+  static String changeTheme = 'Cambiar tema';
+
+  static String drawerItemSymbol = '•';
+
   static String lifeSpan(String lifeSpan) =>
       "Esperanza de vida: $lifeSpan años";
 
