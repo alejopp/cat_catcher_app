@@ -84,7 +84,7 @@ class CatDetailScreen extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               Text(
-                catData.description, //TODO Verify style
+                catData.description,
               ),
               SizedBox(height: 20.h),
               _buildInfoRow(context, AppStrings.intelligence,
