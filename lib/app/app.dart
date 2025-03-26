@@ -1,10 +1,11 @@
+import 'package:cat_catcher_app/app/presentation/app_startup.dart';
 import 'package:cat_catcher_app/core/constants/app_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'core/routes/routes.dart';
-import 'core/theme/theme_provider.dart';
+import '../core/routes/routes.dart';
+import '../core/theme/theme_provider.dart';
 
 class App extends ConsumerWidget {
   const App({super.key});
@@ -17,11 +18,13 @@ class App extends ConsumerWidget {
       designSize: Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        title: AppConfig.appName,
-        theme: themeData,
-        routerConfig: routes,
+      child: AppStartup(
+        onLoaded: (_) => MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          title: AppConfig.appName,
+          theme: themeData,
+          routerConfig: routes,
+        ),
       ),
     );
   }

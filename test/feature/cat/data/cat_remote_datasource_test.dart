@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:cat_catcher_app/features/cat/data/datasources/cat_remote_datasource.dart';
 import 'package:cat_catcher_app/features/cat/data/datasources/cat_remote_datasource_impl.dart';
+import 'package:cat_catcher_app/features/network/data/services/network_service.dart';
 import 'package:cat_catcher_app/features/network/domain/entities/api_failure.dart';
 import 'package:cat_catcher_app/features/network/domain/entities/custom_response.dart';
-import 'package:cat_catcher_app/features/network/domain/services/network_service.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart' as mocktail;
