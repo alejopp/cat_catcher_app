@@ -1,9 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cat_catcher_app/core/constants/app_strings.dart';
+import 'package:cat_catcher_app/core/routes/routes.dart';
 import 'package:cat_catcher_app/features/cat/domain/entities/cat.dart';
+import 'package:cat_catcher_app/features/cat/presentation/screens/cat_webview_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class CatDetailScreen extends StatelessWidget {
   final Cat catData;
@@ -117,6 +120,25 @@ class CatDetailScreen extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(
+                height: 15.h,
+              ),
+              if (catData.wikipediaUrl.isNotEmpty)
+                TextButton(
+                  onPressed: () {
+                    context.push(Routes.catWebViewScreen,
+                        extra: CatWebViewParams(
+                          url: catData.wikipediaUrl,
+                          title: catData.name,
+                        ));
+                  },
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      AppStrings.webLinkLabel,
+                    ),
+                  ),
+                )
             ],
           ),
         ),
