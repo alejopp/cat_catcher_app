@@ -1,10 +1,10 @@
 import 'package:cat_catcher_app/shared/data/service/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class StorageServiceImplementation extends StorageService {
+class StorageServiceImpl extends StorageService {
   SharedPreferencesWithCache prefs;
 
-  StorageServiceImplementation(this.prefs);
+  StorageServiceImpl(this.prefs);
 
   @override
   Future<void> clear() async {
@@ -12,17 +12,16 @@ class StorageServiceImplementation extends StorageService {
   }
 
   @override
-  Future<T?> getKey<T>(String key, dynamic type) async {
-    switch (type) {
-      case int _:
-        return prefs.getInt(key) as T?;
-      case String _:
+  Future<T?> getKey<T>(String key) async {
+    switch (T) {
+      case int:
+        final t = prefs.getInt(key) as T?;
+        return t;
+      case String:
         return prefs.getString(key) as T?;
-
-      case double _:
+      case double:
         return prefs.getDouble(key) as T?;
-
-      case bool _:
+      case bool:
         return prefs.getBool(key) as T?;
 
       default:
@@ -32,22 +31,22 @@ class StorageServiceImplementation extends StorageService {
   }
 
   @override
-  Future<void> setKey<T>(String key, dynamic type) async {
-    switch (type) {
-      case int _:
-        prefs.setInt(key, type);
+  Future<void> setKey<T>(String key, T value) async {
+    switch (T) {
+      case int:
+        prefs.setInt(key, value as int);
         break;
 
-      case String _:
-        prefs.setString(key, type);
+      case String:
+        prefs.setString(key, value as String);
         break;
 
-      case double _:
-        prefs.setDouble(key, type);
+      case double:
+        prefs.setDouble(key, value as double);
         break;
 
-      case bool _:
-        prefs.setBool(key, type);
+      case bool:
+        prefs.setBool(key, value as bool);
         break;
 
       default:
