@@ -77,12 +77,13 @@ class _LandingScreenState extends ConsumerState {
     return CustomScrollView(
       slivers: [
         CustomSearchBarWidget(
+          textEditingController: _searchController,
           searching: searching,
           onTextChanged: (value) {
-            _searchController.text = value;
             ref.read(catNotifierProvider.notifier).filterCat(value);
           },
           onCancelSearch: () {
+            FocusScope.of(context).unfocus();
             _searchController.clear();
             ref.read(catNotifierProvider.notifier).clear();
           },

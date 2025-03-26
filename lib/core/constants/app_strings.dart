@@ -25,6 +25,8 @@ class AppStrings {
 
   static String drawerItemSymbol = '•';
 
+  static String webLinkLabel = 'Ver en internet';
+
   static String lifeSpan(String lifeSpan) =>
       "Esperanza de vida: $lifeSpan años";
 
