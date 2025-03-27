@@ -1,9 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cat_catcher_app/core/constants/app_strings.dart';
+import 'package:cat_catcher_app/core/constants/placeholders.dart';
+import 'package:cat_catcher_app/core/extensions/locale_extension.dart';
+import 'package:cat_catcher_app/core/routes/routes.dart';
 import 'package:cat_catcher_app/features/cat/domain/entities/cat.dart';
+import 'package:cat_catcher_app/features/cat/presentation/screens/cat_webview_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class CatDetailScreen extends StatelessWidget {
   final Cat catData;
@@ -81,28 +86,27 @@ class CatDetailScreen extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               Text(
-                catData.description, //TODO Verify style
+                catData.description,
               ),
               SizedBox(height: 20.h),
-              _buildInfoRow(context, AppStrings.intelligence,
-                  catData.intelligence, Icons.lightbulb),
-              _buildInfoRow(context, AppStrings.adaptability,
-                  catData.intelligence, Icons.star),
-              _buildInfoRow(context, AppStrings.childFriendly,
+              _buildInfoRow(context, context.intelligence, catData.intelligence,
+                  Icons.lightbulb),
+              _buildInfoRow(context, context.adaptability, catData.intelligence,
+                  Icons.star),
+              _buildInfoRow(context, context.childFriendly,
                   catData.childFriendly, Icons.child_care),
-              _buildInfoRow(context, AppStrings.socialNeeds,
-                  catData.socialNeeds, Icons.people),
-              _buildInfoRow(context, AppStrings.dogFriendly,
-                  catData.dogFriendly, Icons.pets),
+              _buildInfoRow(context, context.socialNeeds, catData.socialNeeds,
+                  Icons.people),
+              _buildInfoRow(context, context.dogFriendly, catData.dogFriendly,
+                  Icons.pets),
               Row(
                 children: [
                   Icon(Icons.favorite, color: Colors.redAccent),
                   SizedBox(width: 10.w),
-                  Text(
-                    AppStrings.lifeSpan(
-                      catData.lifeSpan,
-                    ),
-                  ),
+                  Text(context.tr(
+                    AppStrings.lifeSpan.name,
+                    args: {Placeholders.lifeSpan: catData.lifeSpan},
+                  )),
                 ],
               ),
               SizedBox(height: 5.h),
@@ -112,11 +116,33 @@ class CatDetailScreen extends StatelessWidget {
                   SizedBox(width: 10.h),
                   Expanded(
                     child: Text(
-                      AppStrings.temperament(catData.temperament),
+                      context.tr(
+                        AppStrings.temperament.name,
+                        args: {Placeholders.temperament: catData.temperament},
+                      ),
                     ),
                   ),
                 ],
               ),
+              SizedBox(
+                height: 15.h,
+              ),
+              if (catData.wikipediaUrl.isNotEmpty)
+                TextButton(
+                  onPressed: () {
+                    context.push(Routes.catWebViewScreen,
+                        extra: CatWebViewParams(
+                          url: catData.wikipediaUrl,
+                          title: catData.name,
+                        ));
+                  },
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      context.webLinkLabel,
+                    ),
+                  ),
+                )
             ],
           ),
         ),

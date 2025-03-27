@@ -1,4 +1,4 @@
-import 'package:cat_catcher_app/core/constants/app_strings.dart';
+import 'package:cat_catcher_app/core/extensions/locale_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,6 +21,7 @@ class CustomSearchBarWidget extends StatelessWidget {
     return SliverAppBar(
       floating: false,
       pinned: false,
+      automaticallyImplyLeading: false,
       expandedHeight: 100.h,
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: EdgeInsets.only(bottom: 16.h, left: 16.w, right: 16.w),
@@ -37,7 +38,7 @@ class CustomSearchBarWidget extends StatelessWidget {
               fontSize: 14.sp,
             ),
             decoration: InputDecoration(
-              hintText: AppStrings.searchBreadHint,
+              hintText: context.searchBreadHint,
               hintStyle: TextStyle(fontSize: 12.sp, color: Colors.grey),
               filled: true,
               prefixIcon: searching

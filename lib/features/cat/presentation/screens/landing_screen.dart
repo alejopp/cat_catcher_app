@@ -1,9 +1,12 @@
 import 'package:cat_catcher_app/core/constants/app_strings.dart';
+import 'package:cat_catcher_app/core/constants/placeholders.dart';
+import 'package:cat_catcher_app/core/extensions/locale_extension.dart';
 import 'package:cat_catcher_app/core/routes/routes.dart';
 import 'package:cat_catcher_app/features/cat/presentation/providers/cat_provider.dart';
 import 'package:cat_catcher_app/features/network/presentation/provider/connectivity_provider.dart';
-import 'package:cat_catcher_app/shared/widgets/custom_card_widget.dart';
-import 'package:cat_catcher_app/shared/widgets/custom_search_bar_widget.dart';
+import 'package:cat_catcher_app/shared/presentation/widgets/custom_card_widget.dart';
+import 'package:cat_catcher_app/shared/presentation/widgets/custom_drawer.dart';
+import 'package:cat_catcher_app/shared/presentation/widgets/custom_search_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,6 +43,7 @@ class _LandingScreenState extends ConsumerState {
       child: Scaffold(
         appBar: _buildAppbar(ref),
         body: _buildBody(context, ref),
+        drawer: CustomDrawer(),
       ),
     );
   }
@@ -47,7 +51,7 @@ class _LandingScreenState extends ConsumerState {
   _buildAppbar(WidgetRef ref) {
     return AppBar(
       title: Text(
-        AppStrings.landingScrrenTitle,
+        context.landingScreenTitle,
       ),
       centerTitle: true,
     );
@@ -62,7 +66,7 @@ class _LandingScreenState extends ConsumerState {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              next.isConnected ? AppStrings.connected : AppStrings.noConnected,
+              next.isConnected ? context.connected : context.noConnected,
             ),
           ),
         );
@@ -75,12 +79,13 @@ class _LandingScreenState extends ConsumerState {
     return CustomScrollView(
       slivers: [
         CustomSearchBarWidget(
+          textEditingController: _searchController,
           searching: searching,
           onTextChanged: (value) {
-            _searchController.text = value;
             ref.read(catNotifierProvider.notifier).filterCat(value);
           },
           onCancelSearch: () {
+            FocusScope.of(context).unfocus();
             _searchController.clear();
             ref.read(catNotifierProvider.notifier).clear();
           },
@@ -102,7 +107,12 @@ class _LandingScreenState extends ConsumerState {
       } else if (catState.error) {
         return SliverFillRemaining(
           hasScrollBody: false,
-          child: Center(child: Text(AppStrings.errorMessage('error'))),
+          child: Center(
+            child: Text(
+              context.tr(AppStrings.errorMessage.name,
+                  args: {Placeholders.error: AppStrings.errorMessage.name}),
+            ),
+          ),
         );
       } else {
         final cats = catState.filteredCats;

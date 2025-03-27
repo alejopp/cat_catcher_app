@@ -5,7 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'app.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
-  runApp(ProviderScope(child: App()));
+  runApp(
+    ProviderScope(
+      child: App(),
+    ),
+  );
 }

@@ -13,19 +13,15 @@ class ConnectivityNotifier extends StateNotifier<ConnectivityState> {
   StreamSubscription<List<ConnectivityResult>>? _subscription;
 
   ConnectivityNotifier() : super(ConnectivityState(connections: [])) {
-    _checkInitialConnection();
     _startListening();
-  }
-
-  Future<void> _checkInitialConnection() async {
-    List<ConnectivityResult> results = await _connectivity.checkConnectivity();
-    state = state.copyWith(connections: results);
   }
 
   void _startListening() {
     _subscription = _connectivity.onConnectivityChanged
         .listen((List<ConnectivityResult> result) {
-      state = state.copyWith(connections: result);
+      if (state.connections != result) {
+        state = state.copyWith(connections: result);
+      }
     });
   }
 

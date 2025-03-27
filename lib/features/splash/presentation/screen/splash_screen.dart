@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(milliseconds: 500), () {
       setState(() => _opacity = 1.0);
     });
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(Duration(seconds: 3), () {
       if (context.mounted) {
         context.go(Routes.landingScreen);
       }

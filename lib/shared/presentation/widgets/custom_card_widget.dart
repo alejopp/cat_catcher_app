@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cat_catcher_app/core/constants/app_strings.dart';
+import 'package:cat_catcher_app/core/extensions/locale_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -56,7 +56,7 @@ class CustomCardWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                AppStrings.originCountry,
+                context.originCountry,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               SizedBox(
@@ -81,7 +81,7 @@ class CustomCardWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '${AppStrings.intelligence}:',
+                '${context.intelligence}:',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               SizedBox(
@@ -142,7 +142,7 @@ class CustomCardWidget extends StatelessWidget {
               ),
             ),
             child: Text(
-              AppStrings.more,
+              context.more,
             ),
           ),
         ],
