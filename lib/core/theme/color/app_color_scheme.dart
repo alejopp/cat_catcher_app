@@ -106,7 +106,7 @@ class AppColorScheme {
   static ColorScheme brandScheme() {
     return const ColorScheme(
       brightness: Brightness.dark,
-      primary: Color(0xff330072),
+      primary: Color(0xff6a548d),
       surfaceTint: Color(0xffd5bbfc),
       onPrimary: Color(0xff3a255b),
       primaryContainer: Color(0xff523c73),

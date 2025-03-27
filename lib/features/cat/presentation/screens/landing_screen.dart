@@ -1,4 +1,6 @@
 import 'package:cat_catcher_app/core/constants/app_strings.dart';
+import 'package:cat_catcher_app/core/constants/placeholders.dart';
+import 'package:cat_catcher_app/core/extensions/locale_extension.dart';
 import 'package:cat_catcher_app/core/routes/routes.dart';
 import 'package:cat_catcher_app/features/cat/presentation/providers/cat_provider.dart';
 import 'package:cat_catcher_app/features/network/presentation/provider/connectivity_provider.dart';
@@ -49,7 +51,7 @@ class _LandingScreenState extends ConsumerState {
   _buildAppbar(WidgetRef ref) {
     return AppBar(
       title: Text(
-        AppStrings.landingScrrenTitle,
+        context.landingScreenTitle,
       ),
       centerTitle: true,
     );
@@ -64,7 +66,7 @@ class _LandingScreenState extends ConsumerState {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              next.isConnected ? AppStrings.connected : AppStrings.noConnected,
+              next.isConnected ? context.connected : context.noConnected,
             ),
           ),
         );
@@ -105,7 +107,12 @@ class _LandingScreenState extends ConsumerState {
       } else if (catState.error) {
         return SliverFillRemaining(
           hasScrollBody: false,
-          child: Center(child: Text(AppStrings.errorMessage('error'))),
+          child: Center(
+            child: Text(
+              context.tr(AppStrings.errorMessage.name,
+                  args: {Placeholders.error: AppStrings.errorMessage.name}),
+            ),
+          ),
         );
       } else {
         final cats = catState.filteredCats;

@@ -1,4 +1,4 @@
-import 'package:cat_catcher_app/core/constants/app_strings.dart';
+import 'package:cat_catcher_app/core/extensions/locale_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -38,7 +38,7 @@ class CustomSearchBarWidget extends StatelessWidget {
               fontSize: 14.sp,
             ),
             decoration: InputDecoration(
-              hintText: AppStrings.searchBreadHint,
+              hintText: context.searchBreadHint,
               hintStyle: TextStyle(fontSize: 12.sp, color: Colors.grey),
               filled: true,
               prefixIcon: searching

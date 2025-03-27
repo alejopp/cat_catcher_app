@@ -1,5 +1,4 @@
 import 'package:cat_catcher_app/app.dart';
-import 'package:cat_catcher_app/core/constants/app_strings.dart';
 import 'package:cat_catcher_app/shared/presentation/widgets/custom_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -17,7 +16,7 @@ void main() async {
     await tester.pumpAndSettle(Duration(seconds: 2));
 
     // Verifies that AppBar has the right Title
-    expect(find.text(AppStrings.landingScrrenTitle), findsOneWidget);
+    expect(find.text('Catbreeds'), findsOneWidget);
 
     // Verifies cat's breeds has at least one element
     expect(find.byType(SliverList), findsOneWidget);
@@ -46,7 +45,7 @@ void main() async {
     await tester.pumpAndSettle(Duration(seconds: 2));
 
     // Touch "Ver más" button in card
-    await tester.tap(find.text(AppStrings.more).first);
+    await tester.tap(find.text('Más...').first);
     await tester.pumpAndSettle();
 
     // Verify that detail screen is shown

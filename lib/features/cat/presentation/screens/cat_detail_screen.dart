@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cat_catcher_app/core/constants/app_strings.dart';
+import 'package:cat_catcher_app/core/constants/placeholders.dart';
+import 'package:cat_catcher_app/core/extensions/locale_extension.dart';
 import 'package:cat_catcher_app/core/routes/routes.dart';
 import 'package:cat_catcher_app/features/cat/domain/entities/cat.dart';
 import 'package:cat_catcher_app/features/cat/presentation/screens/cat_webview_screen.dart';
@@ -87,25 +89,24 @@ class CatDetailScreen extends StatelessWidget {
                 catData.description,
               ),
               SizedBox(height: 20.h),
-              _buildInfoRow(context, AppStrings.intelligence,
-                  catData.intelligence, Icons.lightbulb),
-              _buildInfoRow(context, AppStrings.adaptability,
-                  catData.intelligence, Icons.star),
-              _buildInfoRow(context, AppStrings.childFriendly,
+              _buildInfoRow(context, context.intelligence, catData.intelligence,
+                  Icons.lightbulb),
+              _buildInfoRow(context, context.adaptability, catData.intelligence,
+                  Icons.star),
+              _buildInfoRow(context, context.childFriendly,
                   catData.childFriendly, Icons.child_care),
-              _buildInfoRow(context, AppStrings.socialNeeds,
-                  catData.socialNeeds, Icons.people),
-              _buildInfoRow(context, AppStrings.dogFriendly,
-                  catData.dogFriendly, Icons.pets),
+              _buildInfoRow(context, context.socialNeeds, catData.socialNeeds,
+                  Icons.people),
+              _buildInfoRow(context, context.dogFriendly, catData.dogFriendly,
+                  Icons.pets),
               Row(
                 children: [
                   Icon(Icons.favorite, color: Colors.redAccent),
                   SizedBox(width: 10.w),
-                  Text(
-                    AppStrings.lifeSpan(
-                      catData.lifeSpan,
-                    ),
-                  ),
+                  Text(context.tr(
+                    AppStrings.lifeSpan.name,
+                    args: {Placeholders.lifeSpan: catData.lifeSpan},
+                  )),
                 ],
               ),
               SizedBox(height: 5.h),
@@ -115,7 +116,10 @@ class CatDetailScreen extends StatelessWidget {
                   SizedBox(width: 10.h),
                   Expanded(
                     child: Text(
-                      AppStrings.temperament(catData.temperament),
+                      context.tr(
+                        AppStrings.temperament.name,
+                        args: {Placeholders.temperament: catData.temperament},
+                      ),
                     ),
                   ),
                 ],
@@ -135,7 +139,7 @@ class CatDetailScreen extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.center,
                     child: Text(
-                      AppStrings.webLinkLabel,
+                      context.webLinkLabel,
                     ),
                   ),
                 )

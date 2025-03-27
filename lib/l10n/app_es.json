@@ -1,0 +1,22 @@
+{
+  "landingScreenTitle": "Catbreeds",
+  "intelligence": "Inteligencia",
+  "adaptability": "Adaptabilidad",
+  "childFriendly": "Amigable con niños",
+  "socialNeeds": "Necesidad social",
+  "dogFriendly": "Compatibilidad con perros",
+  "originCountry": "País de origen:",
+  "more": "Más...",
+  "searchBreadHint": "¿Qué raza buscas?",
+  "connected": "Conectado",
+  "noConnected": "Sin Conexión",
+  "changeTheme": "Cambiar modo",
+  "webLinkLabel": "Ver en internet",
+  "theme": "Modo",
+  "language": "Idioma",
+  "english": "Inglés",
+  "spanish": "Español",
+  "lifeSpan": "Esperanza de vida: {lifeSpan} años",
+  "temperament": "Temperamento: {temperament}",
+  "error_message": "Error: {error}"
+}
