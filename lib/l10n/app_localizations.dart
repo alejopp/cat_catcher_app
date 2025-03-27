@@ -30,7 +30,7 @@ class AppLocalizations {
 
     if (args != null) {
       args.forEach((placeholder, replacement) {
-        value = value.replaceAll('{$placeholder}', replacement);
+        value = value.replaceAll(placeholder, replacement);
       });
     }
 
