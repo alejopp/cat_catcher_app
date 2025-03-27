@@ -65,6 +65,8 @@ El proyecto cuenta con **tests unitarios** para validar la funcionalidad de:
 
 - **Datasource**: Pruebas sobre la obtención de datos desde la API.
 - **UseCase**: Validación de la lógica de negocio aplicada a los datos.
+- **Locale**: Validación de strings para la traducción de textos.
+- **Integration**: Valdación de interactividad de la app.
 
 Para ejecutar las pruebas, usa el siguiente comando:
 ```sh
