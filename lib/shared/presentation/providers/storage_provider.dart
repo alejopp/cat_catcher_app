@@ -11,6 +11,7 @@ final FutureProvider<StorageService> storageProvider =
       // When an allowlist is included, any keys that aren't included cannot be used.
       allowList: <String>{
         Preferences.theme.name,
+        Preferences.language.name,
       },
     ),
   );

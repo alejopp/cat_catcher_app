@@ -28,22 +28,28 @@ class ThemeNotifier extends StateNotifier<ThemeData> {
     final preferences = await _ref.read(storageProvider.future);
     final savedTheme = await preferences.getKey<int>(Preferences.theme.name) ??
         PlatformDispatcher.instance.platformBrightness.index;
-    setTheme(ThemeType.values[savedTheme ?? 0]);
+    setTheme(ThemeType.values[savedTheme]);
   }
 
-  void setTheme(ThemeType theme) async {
+  void setTheme(ThemeType theme, {bool save = false}) async {
     switch (theme) {
       case ThemeType.light:
         state = AppTheme.theme(AppColorScheme.lightScheme());
-        saveTheme(theme.index);
+        if (save) {
+          saveTheme(theme.index);
+        }
         break;
       case ThemeType.dark:
         state = AppTheme.theme(AppColorScheme.darkScheme());
-        saveTheme(theme.index);
+        if (save) {
+          saveTheme(theme.index);
+        }
         break;
       case ThemeType.brand:
         state = AppTheme.theme(AppColorScheme.brandScheme());
-        saveTheme(theme.index);
+        if (save) {
+          saveTheme(theme.index);
+        }
         break;
     }
   }

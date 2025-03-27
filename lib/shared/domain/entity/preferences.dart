@@ -1,1 +1,1 @@
-enum Preferences { theme }
+enum Preferences { theme, language }

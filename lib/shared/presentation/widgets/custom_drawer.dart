@@ -72,7 +72,7 @@ class CustomDrawer extends ConsumerWidget {
             style: TextStyle(fontSize: 20)),
         title: Text(theme.name),
         onTap: () {
-          ref.read(themeProvider.notifier).setTheme(theme);
+          ref.read(themeProvider.notifier).setTheme(theme, save: true);
         },
       ),
     );
@@ -103,7 +103,7 @@ class CustomDrawer extends ConsumerWidget {
           locale.languageCode == 'es' ? context.spanish : context.english,
         ),
         onTap: () {
-          ref.read(localeProvider.notifier).setLocale(locale);
+          ref.read(localeProvider.notifier).setLocale(locale, save: true);
         },
       ),
     );
