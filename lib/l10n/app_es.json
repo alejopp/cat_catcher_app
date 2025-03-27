@@ -18,5 +18,5 @@
   "spanish": "Español",
   "lifeSpan": "Esperanza de vida: {lifeSpan} años",
   "temperament": "Temperamento: {temperament}",
-  "error_message": "Error: {error}"
+  "errorMessage": "Error: {error}"
 }
